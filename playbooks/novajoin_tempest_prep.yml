@@ -1,0 +1,10 @@
+#!/usr/bin/env ansible-playbook
+---
+- name: Undercloud part of novajoin testing
+  hosts: undercloud-0
+  tasks:
+    - name: Copy novajoin keytab to stack user home directory
+      shell: |
+        cp /etc/novajoin/krb5.keytab /home/stack/novajoin.keytab
+        chown stack: /home/stack/novajoin.keytab
+      become: yes
