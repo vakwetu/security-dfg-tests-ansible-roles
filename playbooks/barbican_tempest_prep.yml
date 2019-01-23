@@ -1,0 +1,9 @@
+#!/usr/bin/env ansible-playbook
+---
+- name: Undercloud part of barbican tempest testing
+  hosts: undercloud-0
+  tasks:
+    - name: Add the creator role
+      shell: |
+        source ~/stackrc
+        openstack role create "creator"
