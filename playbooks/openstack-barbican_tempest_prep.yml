@@ -5,5 +5,5 @@
   tasks:
     - name: Add the creator role
       shell: |
-        source ~/stackrc
+        source ~/overcloudrc
         openstack role create "creator"
