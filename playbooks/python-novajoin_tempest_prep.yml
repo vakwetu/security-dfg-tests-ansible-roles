@@ -6,7 +6,7 @@
     - name: Copy novajoin keytab to stack user home directory
       shell: |
         cp /etc/novajoin/krb5.keytab /home/stack/krb5.keytab
-        chown stack: /home/stack/novajoin.keytab
+        chown stack: /home/stack/krb5.keytab
       become: yes
 
     - name: Install gcc
