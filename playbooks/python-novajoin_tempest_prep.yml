@@ -5,6 +5,32 @@
   tasks:
     - name: Copy novajoin keytab to stack user home directory
       shell: |
-        cp /etc/novajoin/krb5.keytab /home/stack/novajoin.keytab
+        cp /etc/novajoin/krb5.keytab /home/stack/krb5.keytab
         chown stack: /home/stack/novajoin.keytab
       become: yes
+
+    - name: Install gcc
+      package:
+        name: gcc
+        state: present
+      become: yes
+
+    - name: Install gcc-c++
+      package:
+        name: gcc-c++
+        state: present
+      become: yes
+
+    - name: Install python-devel
+      package:
+        name: python-devel
+        state: present
+      become: yes
+
+    - name: disable strict host checking
+      copy:
+        dest: "/home/stack/.ssh/config"
+        mode: 0400
+        content: |
+          Host *
+              StrictHostKeyChecking no
