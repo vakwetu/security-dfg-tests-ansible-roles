@@ -34,3 +34,12 @@
         content: |
           Host *
               StrictHostKeyChecking no
+
+    - name: configure REQUESTS_CA_BUNDLE variable
+      lineinfile:
+        dest: /etc/environment
+        state: present
+        regexp: '.*REQUESTS_CA_BUNDLE.*$'
+        line: "export REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt"
+        create: yes
+      become: yes
