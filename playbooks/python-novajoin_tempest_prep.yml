@@ -43,3 +43,11 @@
         line: "export REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt"
         create: yes
       become: yes
+
+    - name: configure REQUESTS_CA_BUNDLE variable in keystonerc
+      lineinfile:
+        dest: /home/stack/keystonerc
+        state: present
+        insertafter: EOF
+        line: "export REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt"
+        create: yes
