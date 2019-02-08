@@ -44,9 +44,9 @@
         create: yes
       become: yes
 
-    - name: configure REQUESTS_CA_BUNDLE variable in .bash_profile
+    - name: configure REQUESTS_CA_BUNDLE variable in .bashrc
       lineinfile:
-        dest: "/home/stack/.bash_profile"
+        dest: "/home/stack/.bashrc"
         state: present
         insertafter: EOF
         line: "export REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt"
