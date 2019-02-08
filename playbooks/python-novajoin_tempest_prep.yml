@@ -44,9 +44,9 @@
         create: yes
       become: yes
 
-    - name: configure REQUESTS_CA_BUNDLE variable in keystonerc
+    - name: configure REQUESTS_CA_BUNDLE variable in .bash_profile
       lineinfile:
-        dest: "{{ test.openstackrc|default(inventory_dir + '/keystonerc') }}"
+        dest: "/home/stack/.bash_profile"
         state: present
         insertafter: EOF
         line: "export REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt"
